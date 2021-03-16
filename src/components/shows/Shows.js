@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Show from '../show/Show';
 
-const Shows = ({ title, movieApiUrl }) => {
+const Shows = ({ titleShows, movieApiUrl }) => {
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -17,13 +17,23 @@ const Shows = ({ title, movieApiUrl }) => {
 
   return (
     <div className="shows-slider">
-      {loading && !errorMessage ? (
-        <span>loading...</span>
-      ) : errorMessage ? (
-        <div className="errorMessage">{errorMessage}</div>
-      ) : (
-        shows.map((show, index) => <Show key={`${index}-${show.Title}`} show={show} />)
-      )}
+      <h2 className="shows-title">{titleShows}</h2>
+      <div className="shows-slider-content">
+        {loading && !errorMessage ? (
+          <span>loading...</span>
+        ) : errorMessage ? (
+          <div className="errorMessage">{errorMessage}</div>
+        ) : (
+          <div className="label_with_tumbs">
+            {shows.map((show, index) => (
+              <Show key={`${index}-${show.Title}`} show={show} />
+            ))}
+          </div>
+        )}
+        <div className="viewall">
+          <a href="#">View All</a>
+        </div>
+      </div>
     </div>
   );
 };

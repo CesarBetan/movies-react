@@ -33,11 +33,11 @@ const App = () => {
   return (
     <div className="App">
       <Header text="Shows Database" />
-
-      <p className="App-intro">Sharing a few of our favourite shows</p>
-      <Shows title-shows={'Popular'} movieApiUrl={MOVIE_API_URL} />
-      <Shows title-shows={'Top Rated'} movieApiUrl={MOVIE_API_URL_2} />
-      <Shows title-shows={'Now Playing'} movieApiUrl={MOVIE_API_URL_3} />
+      <div className="home-wrapper">
+        <Shows titleShows={'Popular'} movieApiUrl={MOVIE_API_URL} />
+        <Shows titleShows={'Top Rated'} movieApiUrl={MOVIE_API_URL_2} />
+        <Shows titleShows={'Now Playing'} movieApiUrl={MOVIE_API_URL_3} />
+      </div>
     </div>
   );
 };
