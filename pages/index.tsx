@@ -1,7 +1,12 @@
-import React from 'react';
+import React from 'react'
+import Layout from 'components/Layout'
 
-function Home({  }) {
-  return <div>Hello World!</div>;
+const Home = () => {
+  return (
+    <Layout>
+      <h1>Hello Next.js 👋</h1>
+    </Layout>
+  )
 }
 
-export default Home;
+export default Home
