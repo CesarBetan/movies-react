@@ -30,10 +30,11 @@
   box-sizing: border-box;
 }
 
-.shows {
+.shows-slider {
+  width: inherit;
+  height: inherit;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  overflow-x: auto;
 }
 
 .App-header h2 {
