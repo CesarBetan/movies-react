@@ -25,7 +25,7 @@ const Shows = ({ titleShows, movieApiUrl }) => {
           <div className="errorMessage">{errorMessage}</div>
         ) : (
           <div className="label_with_tumbs">
-            {shows.map((show, index) => (
+            {shows.slice(0, 8).map((show, index) => (
               <Show key={`${index}-${show.Title}`} show={show} />
             ))}
           </div>

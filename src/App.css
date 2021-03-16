@@ -267,3 +267,14 @@ For Show.js
   font-weight: bold;
   color: rgb(161, 15, 15);
 }
+
+/* Complete pages */
+.shows-slider-complete {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.label-with-tumbs-complete {
+  margin-top: 75px;
+}
