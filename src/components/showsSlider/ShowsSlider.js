@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Show from '../show/Show';
+import ShowCard from '../showCard/ShowCard';
 
 const Shows = ({ titleShows, movieApiUrl, endpoint }) => {
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
-  const pathLinkTo = `/${endpoint}`;
+  const pathLinkTo = `/${endpoint}/view_all`;
 
   useEffect(() => {
     axios.get(movieApiUrl).then((res) => {
-      const shows = res.data.results;
-      setShows(shows);
+      const showsRes = res.data.results;
+      setShows(showsRes);
       setLoading(false);
     });
   }, [movieApiUrl]);
@@ -25,7 +25,7 @@ const Shows = ({ titleShows, movieApiUrl, endpoint }) => {
         ) : (
           <div className="label_with_tumbs">
             {shows.slice(0, 8).map((show, index) => (
-              <Show key={`${index}-${show.Title}`} show={show} />
+              <ShowCard key={`${index}-${show.Title}`} show={show} category={endpoint} />
             ))}
           </div>
         )}

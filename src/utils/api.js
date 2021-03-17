@@ -5,4 +5,9 @@ const buildUrl = (endpoint) => {
   return url;
 };
 
-export { buildUrl };
+const buildUrlMovie = (movieId) => {
+  const url = `${api}${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+  return url;
+};
+
+export { buildUrl, buildUrlMovie };

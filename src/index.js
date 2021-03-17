@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './components/App';
 import Header from './components/header/Header';
 import Shows from './components/shows/Shows';
+import Show from './components/show/Show';
 import reportWebVitals from './reportWebVitals';
 
 const Routing = () => {
@@ -14,17 +15,20 @@ const Routing = () => {
       <Switch>
         <Route exact path="/" component={App} />
         <Route
-          path="/popular"
-          render={(props) => <Shows title={'Popular'} endpoint={'popular'} />}
+          path="/popular/view_all"
+          render={(props) => <Shows {...props} title={'Popular'} endpoint={'popular'} />}
         />
         <Route
-          path="/top_rated"
-          render={(props) => <Shows title={'Top Rated'} endpoint={'top_rated'} />}
+          path="/top_rated/view_all"
+          render={(props) => <Shows {...props} title={'Top Rated'} endpoint={'top_rated'} />}
         />
         <Route
-          path="/now_playing"
-          render={(props) => <Shows title={'Now Playing'} endpoint={'now_playing'} />}
+          path="/now_playing/view_all"
+          render={(props) => <Shows {...props} title={'Now Playing'} endpoint={'now_playing'} />}
         />
+        <Route path="/popular/:id" component={Show} />
+        <Route path="/top_rated/:id" component={Show} />
+        <Route path="/now_playing/:id" component={Show} />
       </Switch>
     </Router>
   );

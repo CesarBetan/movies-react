@@ -19,22 +19,25 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/popular" className={`nav-link ${active === '/popular' ? 'active' : ''}`}>
+                <Link
+                  to="/popular/view_all"
+                  className={`nav-link ${active === '/popular/view_all' ? 'active' : ''}`}
+                >
                   <p>Popular</p>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/top_rated"
-                  className={`nav-link ${active === '/top_rated' ? 'active' : ''}`}
+                  to="/top_rated/view_all"
+                  className={`nav-link ${active === '/top_rated/view_all' ? 'active' : ''}`}
                 >
                   <p>Top Rated</p>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/now_playing"
-                  className={`nav-link ${active === '/now_playing' ? 'active' : ''}`}
+                  to="/now_playing/view_all"
+                  className={`nav-link ${active === '/now_playing/view_all' ? 'active' : ''}`}
                 >
                   <p>Now Playing</p>
                 </Link>
