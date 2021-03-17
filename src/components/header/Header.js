@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const Header = ({}) => {
+const Header = () => {
+  const active = useLocation().pathname;
+
   return (
     <div className="App-header">
       <div className="header-wrapper">
@@ -12,22 +14,28 @@ const Header = ({}) => {
           <div className="menubar">
             <ul className="menunav">
               <li>
-                <Link to="/" className="nav-link active">
+                <Link to="/" className={`nav-link ${active === '/' ? 'active' : ''}`}>
                   <p>Home</p>
                 </Link>
               </li>
               <li>
-                <Link to="/popular" className="nav-link">
+                <Link to="/popular" className={`nav-link ${active === '/popular' ? 'active' : ''}`}>
                   <p>Popular</p>
                 </Link>
               </li>
               <li>
-                <Link to="/top-rated" className="nav-link">
+                <Link
+                  to="/top_rated"
+                  className={`nav-link ${active === '/top_rated' ? 'active' : ''}`}
+                >
                   <p>Top Rated</p>
                 </Link>
               </li>
               <li>
-                <Link to="/now-playing" className="nav-link">
+                <Link
+                  to="/now_playing"
+                  className={`nav-link ${active === '/now_playing' ? 'active' : ''}`}
+                >
                   <p>Now Playing</p>
                 </Link>
               </li>

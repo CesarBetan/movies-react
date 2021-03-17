@@ -1,0 +1,40 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Show from '../show/Show';
+
+const Shows = ({ titleShows, movieApiUrl, endpoint }) => {
+  const [loading, setLoading] = useState(true);
+  const [shows, setShows] = useState([]);
+  const pathLinkTo = `/${endpoint}`;
+
+  useEffect(() => {
+    axios.get(movieApiUrl).then((res) => {
+      const shows = res.data.results;
+      setShows(shows);
+      setLoading(false);
+    });
+  }, [movieApiUrl]);
+
+  return (
+    <div className="shows-slider">
+      <h2 className="shows-title">{titleShows}</h2>
+      <div className="shows-slider-content">
+        {loading ? (
+          <span>loading...</span>
+        ) : (
+          <div className="label_with_tumbs">
+            {shows.slice(0, 8).map((show, index) => (
+              <Show key={`${index}-${show.Title}`} show={show} />
+            ))}
+          </div>
+        )}
+        <div className="viewall">
+          <Link to={pathLinkTo}>View All</Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Shows;

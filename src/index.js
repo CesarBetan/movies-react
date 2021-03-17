@@ -4,9 +4,7 @@ import './index.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './components/App';
 import Header from './components/header/Header';
-import Popular from './components/popular/Popular';
-import TopRated from './components/topRated/TopRated';
-import NowPlaying from './components/nowPlaying/NowPlaying';
+import Shows from './components/shows/Shows';
 import reportWebVitals from './reportWebVitals';
 
 const Routing = () => {
@@ -15,9 +13,18 @@ const Routing = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/popular" component={Popular} />
-        <Route path="/top-rated" component={TopRated} />
-        <Route path="/now-playing" component={NowPlaying} />
+        <Route
+          path="/popular"
+          render={(props) => <Shows title={'Popular'} endpoint={'popular'} />}
+        />
+        <Route
+          path="/top_rated"
+          render={(props) => <Shows title={'Top Rated'} endpoint={'top_rated'} />}
+        />
+        <Route
+          path="/now_playing"
+          render={(props) => <Shows title={'Now Playing'} endpoint={'now_playing'} />}
+        />
       </Switch>
     </Router>
   );

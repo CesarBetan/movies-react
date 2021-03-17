@@ -247,19 +247,21 @@ For Show.js
   text-shadow: none;
   color: #fff;
   display: block;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 700;
   line-height: 1.4;
+  line-height: 4px;
 }
 
 .show-calfication {
   margin-right: 10px;
   text-shadow: none;
   color: #fff;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
   display: table;
   text-transform: uppercase;
+  line-height: 4px;
 }
 
 .errorMessage {

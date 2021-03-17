@@ -1,39 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { buildUrl } from '../../utils/api';
 import Show from '../show/Show';
 
-const Shows = ({ titleShows, movieApiUrl }) => {
+const Shows = ({ title, endpoint }) => {
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const url = buildUrl(endpoint);
 
   useEffect(() => {
-    axios.get(movieApiUrl).then((res) => {
+    axios.get(url).then((res) => {
       const shows = res.data.results;
       setShows(shows);
       setLoading(false);
     });
-  }, []);
+  }, [url]);
 
   return (
-    <div className="shows-slider">
-      <h2 className="shows-title">{titleShows}</h2>
-      <div className="shows-slider-content">
-        {loading && !errorMessage ? (
-          <span>loading...</span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          <div className="label_with_tumbs">
-            {shows.slice(0, 8).map((show, index) => (
-              <Show key={`${index}-${show.Title}`} show={show} />
-            ))}
-          </div>
-        )}
-        <div className="viewall">
-          <a href="#">View All</a>
+    <div className="shows-slider-complete">
+      <h2 className="shows-title">{title}</h2>
+      {loading ? (
+        <span>loading...</span>
+      ) : (
+        <div className="label-with-tumbs-complete">
+          {shows.map((show, index) => (
+            <Show key={`${index}-${show.Title}`} show={show} />
+          ))}
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -16,8 +16,8 @@ const Show = ({ show }) => {
       <div className="info-show">
         <div className="show-title">
           <div className="show-label">Action</div>
-          <a className="show-label-title">{show.original_title}</a>
-          <a className="show-calfication">{show.vote_average} / 10</a>
+          <p className="show-label-title">{show.original_title}</p>
+          <p className="show-calfication">{show.vote_average} / 10</p>
         </div>
       </div>
     </div>
