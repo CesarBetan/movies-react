@@ -10,4 +10,9 @@ const buildUrlMovie = (movieId) => {
   return url;
 };
 
-export { buildUrl, buildUrlMovie };
+const buildUrlMovieRecomend = (movieId) => {
+  const url = `${api}${movieId}/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`;
+  return url;
+};
+
+export { buildUrl, buildUrlMovie, buildUrlMovieRecomend };

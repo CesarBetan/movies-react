@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { buildUrlMovie } from '../../utils/api';
+import { buildUrlMovie, buildUrlMovieRecomend } from '../../utils/api';
+import ShowsSlider from '../showsSlider/ShowsSlider';
 
 const DEFAULT_PLACEHOLDER_IMAGE =
   'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
@@ -79,7 +80,14 @@ const Show = () => {
           </div>
         </div>
       </div>
-      <div className="show-image-detail-12"></div>
+      <div className="show-image-detail-12">
+        <ShowsSlider
+          titleShows={'Recommendations'}
+          movieApiUrl={buildUrlMovieRecomend(id)}
+          endpoint={'popular'}
+          viewOn={false}
+        />
+      </div>
     </div>
   );
 };

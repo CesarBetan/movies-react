@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ShowCard from '../showCard/ShowCard';
 
-const Shows = ({ titleShows, movieApiUrl, endpoint }) => {
+const Shows = ({ titleShows, movieApiUrl, endpoint, viewOn }) => {
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
   const pathLinkTo = `/${endpoint}/view_all`;
@@ -29,9 +29,13 @@ const Shows = ({ titleShows, movieApiUrl, endpoint }) => {
             ))}
           </div>
         )}
-        <div className="viewall">
-          <Link to={pathLinkTo}>View All</Link>
-        </div>
+        {viewOn ? (
+          <div className="viewall">
+            <Link to={pathLinkTo}>View All</Link>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     </div>
   );
