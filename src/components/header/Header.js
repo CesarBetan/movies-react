@@ -8,7 +8,9 @@ const Header = () => {
     <div className="App-header">
       <div className="header-wrapper">
         <div className="header-logo">
-          <h2>Movies DB</h2>
+          <Link to="/" className="logo">
+            <h2>Movies DB</h2>
+          </Link>
         </div>
         <nav className="header-nav">
           <div className="menubar">

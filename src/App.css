@@ -85,6 +85,13 @@
   color: #ff4444;
 }
 
+.logo {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transition: all 0.25s;
+}
+
 /* new css for show component */
 
 .shows-slider {
@@ -485,7 +492,7 @@ For Show.js
 }
 
 .show-label-det {
-  background-color: #4d5fb6;
+  background-color: #5cb85c;
   color: #fff;
   padding: 8px;
   font-size: 12px;
@@ -496,4 +503,39 @@ For Show.js
   transition: all 0.3s;
   border-radius: 5px;
   margin-right: 5px;
+}
+
+.button-favorite-add {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+.button-favorite-add:hover {
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+.button-favorite-remove {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.button-favorite-remove:hover {
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.button-favorite-add,
+.button-favorite-remove {
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 13px;
+  margin: -8px 0 5px 0;
+  display: table;
+  transition: all 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
 }
