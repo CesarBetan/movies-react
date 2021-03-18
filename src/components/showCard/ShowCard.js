@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import genres from '../../utils/genres.json';
 
 const DEFAULT_PLACEHOLDER_IMAGE =
   'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
@@ -10,6 +11,11 @@ const ShowCard = ({ show, category }) => {
   const poster =
     show.poster_path === null ? DEFAULT_PLACEHOLDER_IMAGE : DEFAULT_IMAGE_POSTER + show.poster_path;
   const url = `/${category}/${show.id}`;
+
+  const getGenre = (genreId) => {
+    const key = Object.keys(genres.genres).find((genre) => genres.genres[genre].id === genreId);
+    return genres.genres[key].name;
+  };
 
   return (
     <div className="show-box">
@@ -23,7 +29,7 @@ const ShowCard = ({ show, category }) => {
         </div>
         <div className="info-show">
           <div className="show-title">
-            <div className="show-label">Action</div>
+            <div className="show-label">{getGenre(show.genre_ids[0])}</div>
             <p className="show-label-title">{show.original_title}</p>
             <p className="show-calfication">{show.vote_average} / 10</p>
           </div>

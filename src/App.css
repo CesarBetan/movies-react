@@ -1,7 +1,7 @@
 /* Home */
 
 .home-wrapper {
-  background-color: #f8f8f8;
+  background-color: #f3f3f3;
   float: left;
   width: 100%;
   padding: 0;
@@ -104,16 +104,18 @@
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  margin-bottom: 50px;
 }
 
 .shows-title {
-  font-size: 22px;
+  font-size: 30px;
   color: #333;
   position: relative;
   font-weight: 600;
   margin-top: 20px;
   text-align: left;
   margin-left: 30px;
+  text-transform: uppercase;
 }
 
 .shows-slider-content {
@@ -227,7 +229,6 @@ For Show.js
   width: 100%;
   vertical-align: middle;
   color: #fff;
-  padding: 15px 20px;
 }
 
 .show-label {
@@ -249,8 +250,8 @@ For Show.js
   display: block;
   font-size: 19px;
   font-weight: 700;
-  line-height: 1.4;
-  line-height: 4px;
+  line-height: 17px;
+  margin-top: 10px;
 }
 
 .show-calfication {
@@ -270,7 +271,7 @@ For Show.js
   color: rgb(161, 15, 15);
 }
 
-/* Complete pages */
+/* Shows pages */
 .shows-slider-complete {
   width: 100%;
   display: flex;
@@ -279,4 +280,189 @@ For Show.js
 
 .label-with-tumbs-complete {
   margin-top: 75px;
+}
+
+/* Show detail */
+
+.show-content {
+  padding: 30px 0;
+  position: relative;
+  background-color: #f3f3f3;
+}
+
+.show-details {
+  padding: 10px 0;
+  position: relative;
+}
+
+.show-container {
+  padding: 0 100px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container-fluid {
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.show-row {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.show-image-detail-3 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .show-image-detail-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .show-image-detail-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .show-image-detail-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .show-row {
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.show-image-detail-3,
+.show-image-detail-9,
+.show-image-detail-12 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.image-detail-thumb {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-fluid {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  border-style: none;
+  border-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.show-det-title {
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.show-det-title > h2 {
+  margin: 30px 0;
+  font-weight: 700;
+  font-size: 42px;
+  z-index: 9;
+  text-transform: uppercase;
+}
+
+.show-det-info {
+  margin-bottom: 1.5rem !important;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.show-det-info span {
+  font-size: 16px;
+  text-align: left !important;
+  margin-right: 15px;
+  padding-right: 15px;
+  line-height: 12px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .show-det-info span {
+    font-size: 13px;
+    text-align: left !important;
+    color: #a3a3a3;
+    margin-right: 5px;
+    padding-right: 5px;
+    line-height: 12px;
+    display: inline-block;
+    font-weight: 500;
+  }
+}
+
+.show-det-desc p {
+  margin: 10px 0;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.show-det-extra {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 1.5rem !important;
+}
+
+.extra-block {
+  width: 350px;
+  float: left;
+}
+
+.extra-title {
+  font-size: 18px;
+  line-height: 2px;
+}
+
+.extra-name {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 5px;
+  text-transform: none;
 }
