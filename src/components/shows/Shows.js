@@ -35,42 +35,44 @@ const Shows = ({ title, endpoint }) => {
 
   return (
     <div>
-      <div className="show-row">
-        <div className="show-image-detail-9">
-          <h2 className="shows-title">{title}</h2>
-        </div>
-        <div className="show-image-detail-3">
-          <button
-            className={`show-label-det shows-filters ${sortName ? 'active-filter ' : ''}`}
-            onClick={sortbyName}
-          >
-            Sort by Name
-          </button>
-          <button
-            className={`show-label-det shows-filters ${sortUpvotes ? 'active-filter ' : ''}`}
-            onClick={sortbyUpvotes}
-          >
-            Sort by Calfication
-          </button>
-        </div>
-      </div>
-      <div className="shows-slider-complete">
-        {loading ? (
-          <span>loading...</span>
-        ) : (
-          <div className="label-with-tumbs-complete">
-            {sortName
-              ? shows
-                  .sort((a, b) => a.title.localeCompare(b.title))
-                  .map((show) => <ShowCard key={show.id} show={show} />)
-              : sortUpvotes
-              ? shows
-                  .sort((a, b) => b.vote_average - a.vote_average)
-                  .map((show) => <ShowCard key={show.id} show={show} />)
-              : shows.map((show) => <ShowCard key={show.id} show={show} />)}
+      {loading ? (
+        <span>loading...</span>
+      ) : (
+        <div>
+          <div className="show-row">
+            <div className="show-image-detail-9">
+              <h2 className="shows-title">{title}</h2>
+            </div>
+            <div className="show-image-detail-3">
+              <button
+                className={`show-label-det shows-filters ${sortName ? 'active-filter ' : ''}`}
+                onClick={sortbyName}
+              >
+                Sort by Name
+              </button>
+              <button
+                className={`show-label-det shows-filters ${sortUpvotes ? 'active-filter ' : ''}`}
+                onClick={sortbyUpvotes}
+              >
+                Sort by Calfication
+              </button>
+            </div>
           </div>
-        )}
-      </div>
+          <div className="shows-slider-complete">
+            <div className="label-with-tumbs-complete">
+              {sortName
+                ? shows
+                    .sort((a, b) => a.title.localeCompare(b.title))
+                    .map((show) => <ShowCard key={show.id} show={show} />)
+                : sortUpvotes
+                ? shows
+                    .sort((a, b) => b.vote_average - a.vote_average)
+                    .map((show) => <ShowCard key={show.id} show={show} />)
+                : shows.map((show) => <ShowCard key={show.id} show={show} />)}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

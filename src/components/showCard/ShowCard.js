@@ -32,7 +32,7 @@ const ShowCard = ({ show }) => {
             {show.genre_ids ? (
               <div className="show-label">{getGenre(show.genre_ids[0])}</div>
             ) : (
-              <div>rl otro</div>
+              <div className="show-label">{show.genres[0].name}</div>
             )}
             <p className="show-label-title">{show.original_title}</p>
             <p className="show-calfication">{show.vote_average} / 10</p>
