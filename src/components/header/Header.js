@@ -44,6 +44,14 @@ const Header = () => {
                   <p>Now Playing</p>
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/favorites/view_all"
+                  className={`nav-link ${active === '/favorites/view_all' ? 'active' : ''}`}
+                >
+                  <p>My Favorites</p>
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>

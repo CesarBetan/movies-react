@@ -25,7 +25,7 @@ const Shows = ({ titleShows, movieApiUrl, endpoint, viewOn }) => {
         ) : (
           <div className="label_with_tumbs">
             {shows.slice(0, 8).map((show, index) => (
-              <ShowCard key={`${index}-${show.Title}`} show={show} category={endpoint} />
+              <ShowCard key={`${index}-${show.Title}`} show={show} />
             ))}
           </div>
         )}

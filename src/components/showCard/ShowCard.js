@@ -7,10 +7,10 @@ const DEFAULT_PLACEHOLDER_IMAGE =
 
 const DEFAULT_IMAGE_POSTER = 'https://image.tmdb.org/t/p/w500';
 
-const ShowCard = ({ show, category }) => {
+const ShowCard = ({ show }) => {
   const poster =
     show.poster_path === null ? DEFAULT_PLACEHOLDER_IMAGE : DEFAULT_IMAGE_POSTER + show.poster_path;
-  const url = `/${category}/${show.id}`;
+  const url = `/show/${show.id}`;
 
   const getGenre = (genreId) => {
     const key = Object.keys(genres.genres).find((genre) => genres.genres[genre].id === genreId);
@@ -29,7 +29,11 @@ const ShowCard = ({ show, category }) => {
         </div>
         <div className="info-show">
           <div className="show-title">
-            <div className="show-label">{getGenre(show.genre_ids[0])}</div>
+            {show.genre_ids ? (
+              <div className="show-label">{getGenre(show.genre_ids[0])}</div>
+            ) : (
+              <div>rl otro</div>
+            )}
             <p className="show-label-title">{show.original_title}</p>
             <p className="show-calfication">{show.vote_average} / 10</p>
           </div>

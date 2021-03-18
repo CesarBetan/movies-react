@@ -9,11 +9,13 @@ const Shows = ({ title, endpoint }) => {
   const url = buildUrl(endpoint);
 
   useEffect(() => {
-    axios.get(url).then((res) => {
-      const showsRes = res.data.results;
+    const getShows = async () => {
+      const newShows = await axios.get(url);
+      const showsRes = newShows.data.results;
       setShows(showsRes);
       setLoading(false);
-    });
+    };
+    getShows();
   }, [url]);
 
   return (
@@ -27,7 +29,7 @@ const Shows = ({ title, endpoint }) => {
         ) : (
           <div className="label-with-tumbs-complete">
             {shows.map((show) => (
-              <ShowCard key={show.id} show={show} category={endpoint} />
+              <ShowCard key={show.id} show={show} />
             ))}
           </div>
         )}

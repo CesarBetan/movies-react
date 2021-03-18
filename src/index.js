@@ -6,6 +6,7 @@ import App from './components/App';
 import Header from './components/header/Header';
 import Shows from './components/shows/Shows';
 import Show from './components/show/Show';
+import Favorites from './components/favorites/Favorites';
 import reportWebVitals from './reportWebVitals';
 
 const Routing = () => {
@@ -26,9 +27,8 @@ const Routing = () => {
           path="/now_playing/view_all"
           render={(props) => <Shows {...props} title={'Now Playing'} endpoint={'now_playing'} />}
         />
-        <Route path="/popular/:id" component={Show} />
-        <Route path="/top_rated/:id" component={Show} />
-        <Route path="/now_playing/:id" component={Show} />
+        <Route path="/favorites/view_all" component={Favorites} />
+        <Route path="/show/:id" component={Show} />
       </Switch>
     </Router>
   );
@@ -41,7 +41,4 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

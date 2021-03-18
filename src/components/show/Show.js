@@ -26,7 +26,6 @@ const Show = () => {
       setShow(showRes);
       const favs = ls.get('favorites') || [];
       setFavorites(favs);
-      console.log(favs);
       if (favs.includes(`${id}`)) {
         setIsFavorite(true);
       } else {
