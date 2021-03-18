@@ -91,6 +91,28 @@
   outline: none;
   transition: all 0.25s;
 }
+.ham-nav {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+.ham-nav button {
+  background-color: #bbb !important;
+  border-color: #bbb !important;
+  color: black !important;
+}
+@media (max-width: 768px) {
+  .ham-nav {
+    display: block;
+  }
+  .header-nav {
+    display: none;
+  }
+}
+.header-nav-active {
+  display: block !important;
+}
 
 /* new css for show component */
 
@@ -335,6 +357,7 @@ For Show.js
   padding: 30px 0;
   position: relative;
   background-color: #f3f3f3;
+  display: inline;
 }
 
 .show-details {

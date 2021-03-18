@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const active = useLocation().pathname;
+  const [displayNav, setDisplayNav] = useState(false);
+
+  const toggleNav = () => {
+    setDisplayNav(!displayNav);
+    console.log(displayNav);
+  };
 
   return (
     <div className="App-header">
@@ -12,7 +18,12 @@ const Header = () => {
             <h2>Movies DB</h2>
           </Link>
         </div>
-        <nav className="header-nav">
+        <div className="ham-nav">
+          <button className="button-favorite-add" onClick={toggleNav}>
+            Ham
+          </button>
+        </div>
+        <nav className={`header-nav ${displayNav ? 'header-nav-active' : ''}`}>
           <div className="menubar">
             <ul className="menunav">
               <li>
