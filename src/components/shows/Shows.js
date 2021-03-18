@@ -17,17 +17,21 @@ const Shows = ({ title, endpoint }) => {
   }, [url]);
 
   return (
-    <div className="shows-slider-complete">
-      <h2 className="shows-title">{title}</h2>
-      {loading ? (
-        <span>loading...</span>
-      ) : (
-        <div className="label-with-tumbs-complete">
-          {shows.map((show) => (
-            <ShowCard key={show.id} show={show} category={endpoint} />
-          ))}
-        </div>
-      )}
+    <div>
+      <div>
+        <h2 className="shows-title">{title}</h2>
+      </div>
+      <div className="shows-slider-complete">
+        {loading ? (
+          <span>loading...</span>
+        ) : (
+          <div className="label-with-tumbs-complete">
+            {shows.map((show) => (
+              <ShowCard key={show.id} show={show} category={endpoint} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -26,11 +26,11 @@ const Show = () => {
     });
   }, [id]);
   const poster =
-    show.poster_path === undefined
+    show && show.poster_path == null
       ? DEFAULT_PLACEHOLDER_IMAGE
       : DEFAULT_IMAGE_POSTER + show.poster_path;
-  let genres = '';
-  genres = `${genres} ${show.genres === undefined ? '' : show.genres.map((a) => a.name)}`;
+  /*let genres = '';
+  genres = `${genres} ${show.genres === undefined ? '' : show.genres.map((a) => a.name)}`;*/
 
   return (
     <div className="show-content">
@@ -68,7 +68,10 @@ const Show = () => {
                 <div className="show-det-extra">
                   <div className="extra-block">
                     <h5 className="extra-title">Genres</h5>
-                    <p className="extra-name">{genres}</p>
+                    {!loading &&
+                      show.genres.map((genre) => (
+                        <div className="show-label-det">{genre.name}</div>
+                      ))}
                   </div>
                   <div className="extra-block">
                     <h5 className="extra-title">Favorite</h5>
