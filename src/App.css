@@ -15,7 +15,7 @@
 .App-header {
   background: #fff;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #ccc;
 }
 
 .header-wrapper {
@@ -112,6 +112,11 @@
 }
 .header-nav-active {
   display: block !important;
+  position: relative;
+  z-index: 2;
+  min-width: 100%;
+  border-bottom: 3px solid #ccc;
+  margin-right: 0px !important;
 }
 
 /* new css for show component */
