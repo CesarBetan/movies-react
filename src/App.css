@@ -594,3 +594,8 @@ button:focus {
 .my-icons {
   margin-right: 5px;
 }
+
+.empty-favorites {
+  width: 50%;
+  margin-left: 30px;
+}

@@ -100,19 +100,27 @@ const Favorites = () => {
               </button>
             </div>
           </div>
-          <div className="shows-slider-complete">
-            <div className="label-with-tumbs-complete">
-              {sortName && shows
-                ? shows
-                    .sort((a, b) => a.title.localeCompare(b.title))
-                    .map((show) => <ShowCard key={show.id} show={show} />)
-                : sortUpvotes && shows
-                ? shows
-                    .sort((a, b) => b.vote_average - a.vote_average)
-                    .map((show) => <ShowCard key={show.id} show={show} />)
-                : shows.map((show) => <ShowCard key={show.id} show={show} />)}
+          {favorites && favorites.length > 0 ? (
+            <div className="shows-slider-complete">
+              <div className="label-with-tumbs-complete">
+                {sortName && shows
+                  ? shows
+                      .sort((a, b) => a.title.localeCompare(b.title))
+                      .map((show) => <ShowCard key={show.id} show={show} />)
+                  : sortUpvotes && shows
+                  ? shows
+                      .sort((a, b) => b.vote_average - a.vote_average)
+                      .map((show) => <ShowCard key={show.id} show={show} />)
+                  : shows.map((show) => <ShowCard key={show.id} show={show} />)}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="empty-favorites">
+              <h2>
+                Oops... it seems this is empty. Explore more movies and add them to your favorites!
+              </h2>
+            </div>
+          )}
         </div>
       ) : (
         <span>loading...</span>
