@@ -63,7 +63,7 @@ const Show = () => {
       setLoading(false);
       window.scrollTo(0, 0);
     });
-  }, [id, movieApiUrl]);
+  }, [id]);
 
   const poster =
     show && show.poster_path == null
