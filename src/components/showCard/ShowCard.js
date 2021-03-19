@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import genres from '../../utils/genres.json';
 
 const DEFAULT_PLACEHOLDER_IMAGE =
@@ -35,7 +36,10 @@ const ShowCard = ({ show }) => {
               <div className="show-label">{show.genres[0].name}</div>
             )}
             <p className="show-label-title">{show.original_title}</p>
-            <p className="show-calfication">{show.vote_average} / 10</p>
+            <p className="show-calfication">
+              <FontAwesomeIcon icon="star" className="my-icons" />
+              {show.vote_average} / 10
+            </p>
           </div>
         </div>
       </Link>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   const active = useLocation().pathname;
@@ -20,7 +21,7 @@ const Header = () => {
         </div>
         <div className="ham-nav">
           <button className="button-favorite-add" onClick={toggleNav}>
-            Ham
+            <FontAwesomeIcon icon="bars" />
           </button>
         </div>
         <nav className={`header-nav ${displayNav ? 'header-nav-active' : ''}`}>

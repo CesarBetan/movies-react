@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ShowCard from '../showCard/ShowCard';
 
 const Shows = ({ titleShows, movieApiUrl, endpoint, viewOn }) => {
@@ -31,7 +32,10 @@ const Shows = ({ titleShows, movieApiUrl, endpoint, viewOn }) => {
         )}
         {viewOn ? (
           <div className="viewall">
-            <Link to={pathLinkTo}>View All</Link>
+            <Link to={pathLinkTo}>
+              View All
+              <FontAwesomeIcon icon="chevron-down" />
+            </Link>
           </div>
         ) : (
           ''

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ls from 'local-storage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { buildUrlMovie } from '../../utils/api';
 import ShowCard from '../showCard/ShowCard';
 
@@ -53,12 +54,14 @@ const Favorites = () => {
                 className={`show-label-det shows-filters ${sortName ? 'active-filter ' : ''}`}
                 onClick={sortbyName}
               >
+                <FontAwesomeIcon icon="sort-alpha-down" className="my-icons" />
                 Sort by Name
               </button>
               <button
                 className={`show-label-det shows-filters ${sortUpvotes ? 'active-filter ' : ''}`}
                 onClick={sortbyUpvotes}
               >
+                <FontAwesomeIcon icon="sort-numeric-down-alt" className="my-icons" />
                 Sort by Calfication
               </button>
             </div>

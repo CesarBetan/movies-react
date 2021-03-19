@@ -98,9 +98,9 @@
   top: 30px;
 }
 .ham-nav button {
-  background-color: #bbb !important;
-  border-color: #bbb !important;
-  color: black !important;
+  background-color: #ff4444;
+  border-color: #ff4444;
+  color: white;
 }
 @media (max-width: 768px) {
   .ham-nav {
@@ -584,4 +584,8 @@ For Show.js
 
 button:focus {
   outline: 0;
+}
+
+.my-icons {
+  margin-right: 5px;
 }

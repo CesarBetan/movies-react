@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ls from 'local-storage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams } from 'react-router-dom';
 import { buildUrlMovie, buildUrlMovieRecomend } from '../../utils/api';
 import ShowsSlider from '../showsSlider/ShowsSlider';
@@ -78,11 +79,26 @@ const Show = () => {
                       <h2>{show.title}</h2>
                     </div>
                     <div className="show-det-info">
-                      <span>{show.adult ? '18+' : '18-'}</span>
-                      <span>{show.runtime}</span>
-                      <span>{show.release_date}</span>
-                      <span>{show.vote_average}</span>
-                      <span>{show.vote_count}</span>
+                      <span>
+                        <FontAwesomeIcon icon="users" className="my-icons" />
+                        {show.adult ? '18+' : '18-'}
+                      </span>
+                      <span>
+                        <FontAwesomeIcon icon="clock" className="my-icons" />
+                        {show.runtime} min.
+                      </span>
+                      <span>
+                        <FontAwesomeIcon icon="calendar-day" className="my-icons" />
+                        {show.release_date.split('-')[0]}
+                      </span>
+                      <span>
+                        <FontAwesomeIcon icon="star" className="my-icons" />
+                        {show.vote_average}
+                      </span>
+                      <span>
+                        <FontAwesomeIcon icon="poll" className="my-icons" />
+                        {show.vote_count}
+                      </span>
                     </div>
                     <div className="show-det-desc">
                       <p>
@@ -105,10 +121,12 @@ const Show = () => {
                         <h5 className="extra-title">Favorite</h5>
                         {isFavorite ? (
                           <button className="button-favorite-add" onClick={removeFavorite}>
+                            <FontAwesomeIcon icon="heart-broken" className="my-icons" />
                             Remove from Favorites
                           </button>
                         ) : (
                           <button className="button-favorite-remove" onClick={addFavorite}>
+                            <FontAwesomeIcon icon="heart" className="my-icons" />
                             Add to Favorites
                           </button>
                         )}
