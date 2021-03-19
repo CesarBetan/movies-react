@@ -63,7 +63,7 @@ const Show = () => {
       setLoading(false);
       window.scrollTo(0, 0);
     });
-  }, [id]);
+  }, [id, movieApiUrl]);
 
   const poster =
     show && show.poster_path == null
@@ -113,7 +113,7 @@ const Show = () => {
                   <div className="show-row">
                     <div className="show-image-detail-12">
                       <div className="image-detail-thumb">
-                        <img className="image-fluid" src={poster} />
+                        <img className="image-fluid" alt={id} src={poster} />
                       </div>
                     </div>
                   </div>

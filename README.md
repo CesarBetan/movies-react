@@ -5,11 +5,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is a challenge project of a movies website developed with ReactJS for SkydropX Developer Challenges.
 It displays movies with the categories of popular, now playing and top rated, with the possibilities of viewing a glance in the home page or in more detail. You can choose a movie and see a detailed description of the movie and recommendations based on the movie chosen. The user can add and remove any movie to favorites in the detailed description of the movie, this will be stored in the local storage to mantain persitency, and the user has a view which shows all the current favorite shows saved by the user.
 
-The following link leads to the production environment mounted on Vercel. [Movies DB](https://movies-db-cesarbetan.vercel.app/)
+The following link leads to the production environment mounted on Vercel. [Movies DB](https://movies-db-nine.vercel.app/)
 
 ## Project startup
 
 Use `yarn install` to install the required dependencies to run the project.
+
+Create a file in the `root` named: `.env` where the apikey will be stored, the apikey should be from [The Movie DB](developers.themoviedb.org).
+Example of what should be in the file, where 1234567890 should be replaced with your apikey:
+`REACT_APP_API_KEY=1234567890`
 
 ## Available Scripts
 

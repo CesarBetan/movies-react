@@ -26,7 +26,9 @@ const Favorites = () => {
    *
    * @function useEffect
    */
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
+    let isMounted = true;
     /**
      * Get data of each favorite show from the specified lists of ids retrieved from
      * the local-storage.
@@ -48,7 +50,10 @@ const Favorites = () => {
       setLoading(false);
     };
     runGetFavorites();
-  }, []);
+    return () => {
+      isMounted = false;
+    };
+  }, [favorites]);
 
   /**
    * It changes to true the value of sortName that sorts the shows stored in the state ordered by name.

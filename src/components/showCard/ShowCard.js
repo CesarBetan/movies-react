@@ -8,6 +8,14 @@ const DEFAULT_PLACEHOLDER_IMAGE =
 
 const DEFAULT_IMAGE_POSTER = 'https://image.tmdb.org/t/p/w500';
 
+export const getGenre = (genreId) => {
+  const key = Object.keys(genres.genres).find((genre) => genres.genres[genre].id === genreId);
+  if (key) {
+    return genres.genres[key].name;
+  }
+  return 'Not Classified';
+};
+
 /**
  * Represents a view for a ShowCard that it is used in the views: Home, popular, top rated,
  * now playing and favorites. It displays condensed infotmation of the show, including:
@@ -24,11 +32,6 @@ const ShowCard = ({ show }) => {
   const poster =
     show.poster_path === null ? DEFAULT_PLACEHOLDER_IMAGE : DEFAULT_IMAGE_POSTER + show.poster_path;
   const url = `/show/${show.id}`;
-
-  const getGenre = (genreId) => {
-    const key = Object.keys(genres.genres).find((genre) => genres.genres[genre].id === genreId);
-    return genres.genres[key].name;
-  };
 
   return (
     <div className="show-box">

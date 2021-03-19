@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import App from './components/App';
+import App from './App';
 import Header from './components/header/Header';
 import Shows from './components/shows/Shows';
 import Show from './components/show/Show';
