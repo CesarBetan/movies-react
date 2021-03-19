@@ -2,10 +2,24 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+/**
+ * Represents a view for the header of the app that contains the logo, and the navbar.
+ *
+ * @component
+ * return (
+ *   <Header />
+ * )
+ */
 const Header = () => {
   const active = useLocation().pathname;
   const [displayNav, setDisplayNav] = useState(false);
 
+  /**
+   * It changes to true the value of displayNav that is used to know if tha navbar should
+   * be displayed in mobile devices.
+   *
+   * @function toggleNav
+   */
   const toggleNav = () => {
     setDisplayNav(!displayNav);
     console.log(displayNav);

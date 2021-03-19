@@ -8,6 +8,18 @@ const DEFAULT_PLACEHOLDER_IMAGE =
 
 const DEFAULT_IMAGE_POSTER = 'https://image.tmdb.org/t/p/w500';
 
+/**
+ * Represents a view for a ShowCard that it is used in the views: Home, popular, top rated,
+ * now playing and favorites. It displays condensed infotmation of the show, including:
+ * poster, title, first genre tag, and average votes of the users.
+ * in the local storage.
+ *
+ * @component
+ * return (
+ *   <ShowCard />
+ * )
+ * @prop {object} show - It gets an object that contains all the information of the show that will be displayed.
+ */
 const ShowCard = ({ show }) => {
   const poster =
     show.poster_path === null ? DEFAULT_PLACEHOLDER_IMAGE : DEFAULT_IMAGE_POSTER + show.poster_path;

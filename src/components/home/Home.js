@@ -2,6 +2,15 @@ import React from 'react';
 import ShowsSlider from '../showsSlider/ShowsSlider';
 import { buildUrl } from '../../utils/api';
 
+/**
+ * Represents a view for the home of the website where it uses ShowsSlider, to display
+ * a glance of popular, top rated, and now playing shows.
+ *
+ * @component
+ * return (
+ *   <Home />
+ * )
+ */
 const Home = () => {
   return (
     <div className="home-wrapper">

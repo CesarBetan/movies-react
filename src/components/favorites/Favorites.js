@@ -5,6 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { buildUrlMovie } from '../../utils/api';
 import ShowCard from '../showCard/ShowCard';
 
+/**
+ * Represents a view for the favorite shows of the user stored
+ * in the local storage.
+ *
+ * @component
+ * return (
+ *   <Favorites />
+ * )
+ */
 const Favorites = () => {
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
@@ -12,7 +21,20 @@ const Favorites = () => {
   const [sortUpvotes, setSortUpvotes] = useState(false);
   const favorites = ls.get('favorites') || [];
 
+  /**
+   * Function used to update the state of the component when the component mounts.
+   *
+   * @function useEffect
+   */
   useEffect(() => {
+    /**
+     * Get data of each favorite show from the specified lists of ids retrieved from
+     * the local-storage.
+     *
+     * @async
+     * @function runGetFavorites
+     * @return {array[object]} - An array of objects containing the shows.
+     */
     const runGetFavorites = async () => {
       const newShows = await Promise.all(
         favorites.map(async (favorite) => {
@@ -28,12 +50,24 @@ const Favorites = () => {
     runGetFavorites();
   }, []);
 
+  /**
+   * It changes to true the value of sortName that sorts the shows stored in the state ordered by name.
+   * If they are already orderd, it reverts the process.
+   *
+   * @function sortbyName
+   */
   const sortbyName = () => {
     setSortName(!sortName);
     if (sortUpvotes) {
       setSortUpvotes(false);
     }
   };
+  /**
+   * It changes to true the value of sortUpvotes that sorts the shows stored in the state ordered
+   * by user calification. If they are already orderd, it reverts the process.
+   *
+   * @function sortbyUpvotes
+   */
   const sortbyUpvotes = () => {
     setSortUpvotes(!sortUpvotes);
     if (sortName) {

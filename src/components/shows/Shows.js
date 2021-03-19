@@ -4,6 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { buildUrl } from '../../utils/api';
 import ShowCard from '../showCard/ShowCard';
 
+/**
+ * Represents a view for displaying the views of popular, top rated and now playing shows.
+ * It displays the first page of the category selected by the user by making a call to the API
+ * with the endpoint thath corresponds.
+ *
+ * @component
+ * return (
+ *   <Shows />
+ * )
+ * @prop {string} title - The title that will be displayed on the component view.
+ * @prop {string} endpoint - Which endpoint corresponds to the the title and view that will be displayed.
+ */
 const Shows = ({ title, endpoint }) => {
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
@@ -11,7 +23,20 @@ const Shows = ({ title, endpoint }) => {
   const [sortUpvotes, setSortUpvotes] = useState(false);
   const url = buildUrl(endpoint);
 
+  /**
+   * Function used to update the state of the component when the component mounts, and the url,
+   * sortName or sortUpvotes are updated.
+   *
+   * @function useEffect
+   */
   useEffect(() => {
+    /**
+     * Get data of the shows according to the category selected by the user.
+     *
+     * @async
+     * @function getShows
+     * @return {array[object]} - An array of objects containing the shows.
+     */
     const getShows = async () => {
       const newShows = await axios.get(url);
       const showsRes = newShows.data.results;
@@ -21,12 +46,24 @@ const Shows = ({ title, endpoint }) => {
     getShows();
   }, [url, sortName, sortUpvotes]);
 
+  /**
+   * It changes to true the value of sortName that sorts the shows stored in the state ordered by name.
+   * If they are already orderd, it reverts the process.
+   *
+   * @function sortbyName
+   */
   const sortbyName = () => {
     setSortName(!sortName);
     if (sortUpvotes) {
       setSortUpvotes(false);
     }
   };
+  /**
+   * It changes to true the value of sortUpvotes that sorts the shows stored in the state ordered
+   * by user calification. If they are already orderd, it reverts the process.
+   *
+   * @function sortbyUpvotes
+   */
   const sortbyUpvotes = () => {
     setSortUpvotes(!sortUpvotes);
     if (sortName) {

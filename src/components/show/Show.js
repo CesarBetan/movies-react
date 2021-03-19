@@ -8,8 +8,23 @@ import ShowsSlider from '../showsSlider/ShowsSlider';
 
 const DEFAULT_PLACEHOLDER_IMAGE =
   'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
-
 const DEFAULT_IMAGE_POSTER = 'https://image.tmdb.org/t/p/w400';
+
+/**
+ * Represents a detailed view for the show selected in another view. It retrieves the
+ * id of the show from the params of the url in order to ask for the API for the
+ * information and display it in the view. It stores and retrieves the favorites information
+ * from the local-storage. In the end it uses the ShowsSlider component to display
+ * recommended shows according to the current show.
+ * It displays the following information for the show:
+ * Poster, title, tagline, overview, genres, adult, runtime, release date, vote average and vote count.
+ *
+ * @component
+ * return (
+ *   <Show />
+ * )
+ * @param {string} id - The id of the show to retrieve.
+ */
 
 const Show = () => {
   const { id } = useParams();
@@ -21,7 +36,20 @@ const Show = () => {
 
   const movieApiUrl = buildUrlMovie(id);
 
+  /**
+   * Function used to update the state of the component when the component mounts, and updates the state
+   * id of the show.
+   *
+   * @function useEffect
+   */
   useEffect(() => {
+    /**
+     * Get data of the current show from the specified id of the show retrieved from the url params.
+     *
+     * @async
+     * @function
+     * @return {object} - An containing all the data of the current show.
+     */
     axios.get(movieApiUrl).then((res) => {
       const showRes = res.data;
       setShow(showRes);
@@ -42,12 +70,28 @@ const Show = () => {
       ? DEFAULT_PLACEHOLDER_IMAGE
       : DEFAULT_IMAGE_POSTER + show.poster_path;
 
+  /**
+   * It changes to true the value of isFavorite to change the render view of the show to
+   * display that you can add it to favorites.
+   * It gets the current favorite shows from the state, adds or removes this current show
+   * according to the case and saves the new array to the local-storage.
+   *
+   * @function addFavorite
+   */
   const addFavorite = () => {
     const newFavorites = [...favorites, id];
     setFavorites(newFavorites);
     setIsFavorite(true);
     ls.set('favorites', newFavorites);
   };
+  /**
+   * It changes to false the value of isFavorite to change the render view of the show to
+   * display that it is already added to favorites and give the option of remove it.
+   * It gets the current favorite shows from the state, adds or removes this current show
+   * according to the case and saves the new array to the local-storage.
+   *
+   * @function removeFavorite
+   */
   const removeFavorite = () => {
     let newFavorites = [...favorites];
     newFavorites = newFavorites.filter((e) => e !== id);
